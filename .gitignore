@@ -1,0 +1,38 @@
+## JetBrains Rider / ReSharper
+.idea/
+*.sln.imap
+*.DotSettings.user
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build and Output Directories
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+build/
+bin/
+obj/
+
+## NuGet Packages & Cache
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+.nuget/
+
+## Visual Studio & Rider Temp Files
+.vs/
+_ReSharper.*/
+*.csproj.user
+*.pubxml
+*.userprefs
+
+## OS Generated Files
+.DS_Store
+Thumbs.db
