@@ -1,4 +1,4 @@
-namespace CircuitApp.CLI.Models;
+namespace CircuitApp.CLI.Models.Core;
 
 public enum PinType
 {
