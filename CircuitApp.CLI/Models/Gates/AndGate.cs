@@ -10,18 +10,13 @@ public class AndGate(
 {
     public override void Evaluate()
     {
-        var s0 = Inputs[0].SignalState;
-        var s1 = Inputs[1].SignalState;
+        List<SignalState> inputStates = [.. Inputs.Select(input => input.SignalState) ];
         
-        if (s0 == SignalState.Undefined || s1 == SignalState.Undefined)
-        {
+        if (inputStates.Contains(SignalState.Low))
+            Output.SignalState = SignalState.Low;
+        else if (inputStates.Contains(SignalState.Undefined))
             Output.SignalState = SignalState.Undefined;
-        }
         else
-        {
-            Output.SignalState = (s0 == SignalState.High && s1 == SignalState.High)
-                ? SignalState.High
-                : SignalState.Low;
-        }
+            Output.SignalState = SignalState.High;
     }
 }
