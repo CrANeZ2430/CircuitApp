@@ -10,18 +10,12 @@ public class XorGate(
 {
     public override void Evaluate()
     {
-        var s0 = Inputs[0].SignalState;
-        var s1 = Inputs[1].SignalState;
+        List<SignalState> inputStates = [.. Inputs.Select(input => input.SignalState)];
 
-        if (s0 == SignalState.Undefined || s1 == SignalState.Undefined)
-        {
+        if (inputStates.Contains(SignalState.Undefined))
             Output.SignalState = SignalState.Undefined;
-        }
-        else
-        {
-            Output.SignalState = (s0 == SignalState.High) ^ (s1 == SignalState.High)
-                ? SignalState.High
-                : SignalState.Low;
-        }
+        else if (inputStates.Count(state => state == SignalState.High) % 2 == 1)
+            Output.SignalState = SignalState.High;
+        else Output.SignalState = SignalState.Low;
     }
 }
